@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alata&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <title>Loopstudios landing page</title>
+
+    <style>
+      :root {
+        --White: hsl(0, 0%, 100%);
+        --Black: hsl(0, 0%, 0%);
+        --Grey-200: hsl(0, 0%, 85%);
+        --Font-size: 15px;
+        --font-family-alata: "Alata", Arial;
+        --font-family-Josefin: "Josefin", Arial;
+      }
+      html,
+      body {
+        width: 100vw;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        overflow-x: hidden;
+      }
+      body {
+        min-height: 100dvh;
+      }
+      .top-nav {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0 auto 50px auto;
+        width: 100%;
+        box-sizing: border-box;
+      }
+      header {
+        height: 100dvh;
+        background-image: url(images/mobile/image-hero.jpg);
+        background-size: cover;
+        background-position: center;
+        width: 100vw;
+        position: relative;
+        padding: 50px 30px;
+        max-width: 100vw;
+        box-sizing: border-box;
+      }
+      .header-logo {
+        max-width: 185px;
+      }
+
+      .top-nav button {
+        background: none;
+        border: none;
+      }
+      .header-nav {
+        display: none;
+      }
+      .hero {
+        padding: 32px;
+        border: 2px var(--White) solid;
+        margin-top: 150px;
+        width: 100%;
+        box-sizing: border-box;
+        width: 100%;
+        box-sizing: border-box;
+      }
+      h1 {
+        color: var(--White);
+        font-family: var(--font-family-Josefin);
+        text-transform: uppercase;
+        font-weight: 100;
+        font-size: 35px;
+        margin: 0;
+        word-break: break-word;
+        white-space: normal;
+      }
+      button {
+        outline: none;
+        border: none;
+        background-color: transparent;
+      }
+      .leader {
+        padding: 100px 30px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        font-family: var(--font-family-alata);
+        text-align: center;
+      }
+
+      img {
+        width: 100%;
+      }
+
+      .leader img {
+        width: 100%;
+        max-height: none;
+        object-fit: cover;
+        display: block;
+      }
+
+      h2 {
+        font-family: var(--font-family-Josefin);
+        font-weight: 100;
+        font-size: 25px;
+        text-transform: uppercase;
+      }
+      h3 {
+        font-size: 25px;
+        font-family: var(--font-family-Josefin);
+        text-transform: uppercase;
+        font-weight: 100;
+        text-align: center;
+      }
+      .leader p {
+        color: var(--Grey-200);
+      }
+      .creations-section {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 0 30px;
+      }
+      .creations-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 30px;
+        justify-content: center;
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      .creations-list article {
+        position: relative;
+      }
+      .creations-list h4 {
+        position: absolute;
+        left: 20px;
+        bottom: 20px;
+        color: white;
+        font-size: 20px;
+        margin: 0;
+        z-index: 2;
+        font-family: var(--font-family-Josefin);
+        text-transform: uppercase;
+        font-weight: 100;
+        width: 120px;
+        white-space: normal;
+        line-height: 1.1;
+      }
+      .creations-list button {
+        height: 50px;
+        width: 200px;
+        border: 2px var(--Black) solid;
+        margin: auto;
+        text-transform: uppercase;
+        font-family: var(--font-family-Josefin);
+        letter-spacing: 4px;
+        font-weight: 700;
+      }
+      footer {
+        background-color: var(--Black);
+        width: 100dvw;
+        box-sizing: border-box;
+        margin: 120px auto 0 auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: var(--White);
+        padding: 72px 60px;
+        font-family: var(--font-family-alata);
+        font-weight: 300;
+      }
+      h5 {
+        margin: 0;
+      }
+      .footer-nav ul,
+      .social-media ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        margin: 50px auto;
+        gap: 30px;
+        padding: 0;
+        text-align: center;
+      }
+
+      .social-media ul {
+        flex-direction: row;
+        margin: 0 auto 30px auto;
+      }
+      footer span {
+        color: var(--Grey-200);
+      }
+      a {
+        text-decoration: none;
+        color: var(--White);
+      }
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+        margin-top: 50px;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+      .creations-mobile {
+        display: block;
+      }
+      .creations-desktop {
+        display: none;
+      }
+      @media (min-width: 1100px) {
+        .creations-mobile {
+          display: none;
+        }
+        .creations-desktop {
+          display: block;
+        }
+        header {
+          margin: 0;
+          padding: 64px 165px;
+          width: auto;
+          height: 100dvh;
+        }
+
+        .header-logo {
+          max-width: 200px;
+        }
+        .header-nav {
+          display: flex !important;
+          flex-direction: row;
+          gap: 32px;
+          background: none;
+          position: static;
+          width: auto;
+          box-shadow: none;
+        }
+        .header-nav ul {
+          display: flex;
+          flex-direction: row;
+          gap: 32px;
+          margin: 0;
+          padding: 0;
+          list-style: none;
+        }
+        .header-nav li {
+          margin: 0;
+        }
+        .header-nav a {
+          color: var(--White);
+          font-family: var(--font-family-alata);
+          font-size: 16px;
+          text-transform: uppercase;
+          letter-spacing: 2px;
+        }
+        .top-nav button {
+          display: none;
+        }
+        .hero {
+          max-width: 600px;
+          height: 260px;
+          margin-top: 140px;
+        }
+        h1 {
+          font-size: 57px;
+        }
+
+        .leader {
+          padding: 120px 150px;
+          position: relative;
+        }
+        .leader img {
+          max-width: 600px;
+          max-height: 500px;
+        }
+        .leader-intro {
+          background-color: var(--White);
+          padding: 80px 85px;
+          max-width: 455px;
+          position: absolute;
+          right: -10px;
+          bottom: 35px;
+        }
+        .leader h2 {
+          margin-top: 0;
+        }
+        .leader p {
+          margin-bottom: 0;
+        }
+        .creations-section {
+          padding: 0 150px 120px 150px;
+        }
+        .creations-list {
+          grid-template-columns: repeat(4, 1fr);
+        }
+        .creations-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 40px;
+        }
+        .creations-header button {
+          height: 50px;
+          width: 200px;
+          border: 2px var(--Black) solid;
+
+          text-transform: uppercase;
+          font-family: var(--font-family-Josefin);
+          letter-spacing: 4px;
+          font-weight: 700;
+        }
+        .creations-header h3 {
+          margin: 0;
+        }
+        footer {
+          height: auto;
+          padding: 45px 100px;
+          margin: 0;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+        }
+        footer img {
+          max-width: 134px;
+        }
+        .footer-nav ul {
+          flex-direction: row;
+          margin: 0;
+        }
+        .social-media ul {
+          display: flex;
+
+          margin: 0;
+        }
+        .footer-left {
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+        }
+        .footer-right {
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+        }
+        .footer-right li {
+          margin-right: 0;
+        }
+        .attribution {
+          display: none;
+        }
+      }
+      .see-all-desktop {
+        display: none;
+      }
+      .see-all-mobile {
+        display: block;
+        margin: 32px auto 0 auto;
+        height: 50px;
+        width: 200px;
+        border: 2px var(--Black) solid;
+        text-transform: uppercase;
+        font-family: var(--font-family-Josefin);
+        letter-spacing: 4px;
+        font-weight: 700;
+        background: var(--White);
+        color: var(--Black);
+        cursor: pointer;
+        transition: background 0.2s, color 0.2s;
+      }
+      .see-all-mobile:hover {
+        background: var(--Black);
+        color: var(--White);
+      }
+      @media (min-width: 1100px) {
+        .see-all-desktop {
+          display: block;
+        }
+        .see-all-desktop:hover {
+          background: var(--Black);
+          color: var(--White);
+        }
+        .see-all-mobile {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="top-nav">
+        <img class="header-logo" src="images/logo.svg" alt="Loopstudios logo" />
+        <button aria-label="Open navigation menu">
+          <img src="images/icon-hamburger.svg" alt="Open menu" />
+        </button>
+        <nav class="header-nav" aria-label="Primary navigation">
+          <ul>
+            <li><a href="#" aria-label="About Loopstudios">About</a></li>
+            <li><a href="#" aria-label="Careers at Loopstudios">Careers</a></li>
+            <li><a href="#" aria-label="Events at Loopstudios">Events</a></li>
+            <li><a href="#" aria-label="Loopstudios Products">Products</a></li>
+            <li><a href="#" aria-label="Loopstudios Support">Support</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="hero">
+        <h1>Immersive experiences that deliver</h1>
+      </div>
+    </header>
+    <main role="main">
+      <section class="leader">
+        <picture>
+          <source
+            srcset="images/desktop/image-interactive.jpg"
+            media="(min-width: 768px)"
+          />
+          <img
+            src="images/mobile/image-interactive.jpg"
+            alt="Person using interactive VR headset"
+          />
+        </picture>
+        <div class="leader-intro">
+          <h2>The leader in interactive VR</h2>
+          <p>
+            Founded in 2011, Loopstudios has been producing world-class virtual
+            reality projects for some of the best companies around the globe.
+            Our award-winning creations have transformed businesses through
+            digital experiences that bind to their brand.
+          </p>
+        </div>
+      </section>
+      <section class="creations-section">
+        <div class="creations-header">
+          <h3>Our creations</h3>
+          <button class="see-all-desktop" aria-label="See all creations">
+            See all
+          </button>
+        </div>
+        <div class="creations-list">
+          <article>
+            <img
+              class="creations-mobile"
+              src="images/mobile/image-deep-earth.jpg"
+              alt="Deep earth VR experience"
+            />
+            <img
+              class="creations-desktop"
+              src="images/desktop/image-deep-earth.jpg"
+              alt="Deep earth VR experience"
+            />
+            <h4>Deep earth</h4>
+          </article>
+          <article>
+            <img
+              class="creations-mobile"
+              src="images/mobile/image-night-arcade.jpg"
+              alt="Night arcade VR experience"
+            />
+            <img
+              class="creations-desktop"
+              src="images/desktop/image-night-arcade.jpg"
+              alt="Night arcade VR experience"
+            />
+            <h4>Night arcade</h4>
+          </article>
+          <article>
+            <img
+              class="creations-mobile"
+              src="images/mobile/image-soccer-team.jpg"
+              alt="Soccer team VR experience"
+            />
+            <img
+              class="creations-desktop"
+              src="images/desktop/image-soccer-team.jpg"
+              alt="Soccer team VR experience"
+            />
+            <h4>Soccer team VR</h4>
+          </article>
+          <article>
+            <img
+              class="creations-mobile"
+              src="images/mobile/image-grid.jpg"
+              alt="The grid VR experience"
+            />
+            <img
+              class="creations-desktop"
+              src="images/desktop/image-grid.jpg"
+              alt="The grid VR experience"
+            />
+            <h4>The grid</h4>
+          </article>
+          <article>
+            <img
+              class="creations-mobile"
+              src="images/mobile/image-from-above.jpg"
+              alt="From up above VR experience"
+            />
+            <img
+              class="creations-desktop"
+              src="images/desktop/image-from-above.jpg"
+              alt="From up above VR experience"
+            />
+            <h4>From up above VR</h4>
+          </article>
+          <article>
+            <img
+              class="creations-mobile"
+              src="images/mobile/image-pocket-borealis.jpg"
+              alt="Pocket borealis VR experience"
+            />
+            <img
+              class="creations-desktop"
+              src="images/desktop/image-pocket-borealis.jpg"
+              alt="Pocket borealis VR experience"
+            />
+            <h4>Pocket borealis</h4>
+          </article>
+          <article>
+            <img
+              class="creations-mobile"
+              src="images/mobile/image-curiosity.jpg"
+              alt="The curiosity VR experience"
+            />
+            <img
+              class="creations-desktop"
+              src="images/desktop/image-curiosity.jpg"
+              alt="The curiosity VR experience"
+            />
+            <h4>The curiosity</h4>
+          </article>
+          <article>
+            <img
+              class="creations-mobile"
+              src="images/mobile/image-fisheye.jpg"
+              alt="Make it fisheye VR experience"
+            />
+            <img
+              class="creations-desktop"
+              src="images/desktop/image-fisheye.jpg"
+              alt="Make it fisheye VR experience"
+            />
+            <h4>Make it fisheye</h4>
+          </article>
+        </div>
+        <button class="see-all-mobile" aria-label="See all creations">
+          See all
+        </button>
+      </section>
+    </main>
+    <footer>
+      <div class="footer-left">
+        <h5>
+          <img src="images/logo.svg" alt="Loopstudios logo" />
+        </h5>
+        <nav aria-label="Footer navigation" class="footer-nav">
+          <ul>
+            <li><a href="#" aria-label="About Loopstudios">About</a></li>
+            <li><a href="#" aria-label="Careers at Loopstudios">Careers</a></li>
+            <li><a href="#" aria-label="Events at Loopstudios">Events</a></li>
+            <li><a href="#" aria-label="Loopstudios Products">Products</a></li>
+            <li><a href="#" aria-label="Loopstudios Support">Support</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="footer-right">
+        <nav aria-label="Social media" class="social-media">
+          <ul>
+            <li>
+              <a href="#" aria-label="Facebook"
+                ><img src="images/icon-facebook.svg" alt="Facebook"
+              /></a>
+            </li>
+            <li>
+              <a href="#" aria-label="Twitter"
+                ><img src="images/icon-twitter.svg" alt="Twitter"
+              /></a>
+            </li>
+            <li>
+              <a href="#" aria-label="Pinterest"
+                ><img src="images/icon-pinterest.svg" alt="Pinterest"
+              /></a>
+            </li>
+            <li>
+              <a href="#" aria-label="Instagram"
+                ><img src="images/icon-instagram.svg" alt="Instagram"
+              /></a>
+            </li>
+          </ul>
+        </nav>
+        <span>© 2025 Loopstudios. All rights reserved.</span>
+      </div>
+      <div class="attribution">
+        Coded by
+        <a
+          href="https://dhia-zorai.github.io/My-Portfolio/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Dhia Zorai's portfolio"
+          >Dhia Zorai</a
+        >.
+      </div>
+    </footer>
+  </body>
+</html>
