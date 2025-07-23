@@ -47,6 +47,8 @@
         margin: 0 auto 50px auto;
         width: 100%;
         box-sizing: border-box;
+        position: relative;
+        z-index: 30;
       }
       header {
         height: 100dvh;
@@ -61,6 +63,8 @@
       }
       .header-logo {
         max-width: 185px;
+        position: relative;
+        z-index: 31;
       }
 
       .top-nav button {
@@ -69,6 +73,40 @@
       }
       .header-nav {
         display: none;
+      }
+      .header-nav.active {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: var(--Black);
+        z-index: 20;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding-left: 30px;
+        padding-top: 10rem;
+        
+      }
+      .header-nav.active ul {
+        flex-direction: column;
+        gap: 30px;
+        align-items: flex-start;
+        margin: 0;
+        padding: 0;
+      }
+      .header-nav.active li {
+        margin: 0;
+      }
+      .header-nav.active a {
+        color: var(--White);
+        font-weight: 300;
+        font-size: 2rem;
+        font-family: var(--font-family-Josefin);
+        text-transform: uppercase;
+        letter-spacing: 2px;
       }
       .hero {
         padding: 32px;
@@ -82,6 +120,7 @@
       h1 {
         color: var(--White);
         font-family: var(--font-family-Josefin);
+        
         text-transform: uppercase;
         font-weight: 100;
         font-size: 35px;
@@ -93,6 +132,30 @@
         outline: none;
         border: none;
         background-color: transparent;
+      }
+      .open-menu.active {
+        display: none;
+      }
+      .close-menu {
+        display: none;
+        position: absolute;
+        top: 50%;
+        right: 30px;
+        transform: translateY(-50%);
+        z-index: 32;
+        background: none;
+        border: none;
+        padding: 0;
+        gap: 30px;
+      }
+      nav ul {
+        display: flex;
+        flex-direction: row;
+        padding: 0;
+        justify-content: flex-start;
+      }
+      .close-menu.active {
+        display: block;
       }
       .leader {
         padding: 100px 30px;
@@ -242,6 +305,7 @@
 
         .header-logo {
           max-width: 200px;
+          position: static;
         }
         .header-nav {
           display: flex !important;
@@ -406,8 +470,11 @@
     <header>
       <div class="top-nav">
         <img class="header-logo" src="images/logo.svg" alt="Loopstudios logo" />
-        <button aria-label="Open navigation menu">
+        <button class="open-menu" aria-label="Open navigation menu">
           <img src="images/icon-hamburger.svg" alt="Open menu" />
+        </button>
+        <button class="close-menu" aria-label="Close navigation menu">
+          <img src="images/icon-close.svg" alt="Close menu" />
         </button>
         <nav class="header-nav" aria-label="Primary navigation">
           <ul>
@@ -616,5 +683,77 @@
         >.
       </div>
     </footer>
+    <div
+      class="overlay"
+      tabindex="-1"
+      aria-hidden="true"
+      style="
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.7);
+        z-index: 10;
+      "
+    ></div>
+    <script>
+      const show_men = document.querySelector(".open-menu");
+      const close_men = document.querySelector(".close-menu");
+      const nav = document.querySelector(".header-nav");
+      const overlay = document.querySelector(".overlay");
+      const navLinks = nav ? nav.querySelectorAll("a") : [];
+
+      function setNavAccessibility(isOpen) {
+        if (!nav || !show_men || !close_men || !overlay) return;
+        nav.setAttribute("aria-hidden", !isOpen);
+        nav.setAttribute("tabindex", isOpen ? "0" : "-1");
+        show_men.setAttribute("aria-expanded", isOpen);
+        close_men.setAttribute("tabindex", isOpen ? "0" : "-1");
+        overlay.setAttribute("aria-hidden", !isOpen);
+        overlay.setAttribute("aria-modal", isOpen ? "true" : "false");
+        overlay.setAttribute("role", isOpen ? "dialog" : "presentation");
+        navLinks.forEach((link) =>
+          link.setAttribute("tabindex", isOpen ? "0" : "-1")
+        );
+      }
+
+      if (show_men && close_men && nav && overlay) {
+        show_men.addEventListener("click", () => {
+          const isOpen = !nav.classList.contains("active");
+          nav.classList.toggle("active");
+          show_men.classList.toggle("active");
+          close_men.classList.toggle(
+            "active",
+            nav.classList.contains("active")
+          );
+          overlay.style.display = nav.classList.contains("active")
+            ? "block"
+            : "none";
+          overlay.classList.toggle("active", nav.classList.contains("active"));
+          setNavAccessibility(isOpen);
+          if (isOpen) close_men.focus();
+        });
+        close_men.addEventListener("click", () => {
+          nav.classList.remove("active");
+          show_men.classList.remove("active");
+          close_men.classList.remove("active");
+          overlay.style.display = "none";
+          overlay.classList.remove("active");
+          setNavAccessibility(false);
+          show_men.focus();
+        });
+        overlay.addEventListener("click", () => {
+          nav.classList.remove("active");
+          show_men.classList.remove("active");
+          close_men.classList.remove("active");
+          overlay.style.display = "none";
+          overlay.classList.remove("active");
+          setNavAccessibility(false);
+          show_men.focus();
+        });
+      }
+    </script>
   </body>
 </html>
